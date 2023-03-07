@@ -1,5 +1,5 @@
 #修改TNAME: K2P 中的K2P为你需要编译的型号，注意名称要与configs/templates/目录下的名字相同
-name: Build Padavan
+name: Padavan_JDC-1
 
 on: 
   release:
@@ -35,11 +35,11 @@ jobs:
         KERNEL: 3.4
       run: |
         if [ $KERNEL = "4.4" ] ; then
-        git clone --depth=1 https://github.com/MeIsReallyBa/padavan-4.4.git /opt/rt-n56u
+        git clone --depth=1 https://github.com/MeIsReallyBa/padavan-4.4.git /opt/Padavan-KVR
         else
-        git clone --depth=1 https://github.com/scqjq/rt-n56u.git /opt/rt-n56u
+        git clone --depth=1 https://github.com/scqjq/Padavan-KVR.git /opt/Padavan-KVR
         fi
-        cd /opt/rt-n56u/toolchain-mipsel
+        cd /opt/Padavan-KVR/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
     - name: Build Firmware
@@ -47,7 +47,7 @@ jobs:
         TNAME: JDC-1
         KERNEL: 3.4
       run: |
-        cd /opt/rt-n56u/trunk
+        cd /opt/Padavan-KVR/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
         echo "configs/templates/$TNAME.config not found "
         exit 1
